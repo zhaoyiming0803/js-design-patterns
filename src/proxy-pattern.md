@@ -9,6 +9,22 @@
 
 虚拟代理是最常用的一种代理模式。
 
+## 用代理实现单例模式
+
+``` javascript
+function Person (name) {
+  this.name = name
+}
+
+const ProxySingletonPerson = (function () {
+  let instance = null
+
+  return function ProxyPerson (name) {
+    return instance || (instance = new Person(name))
+  }
+})();
+```
+
 ## 虚拟代理实现图片预加载
 
 ``` javascript
